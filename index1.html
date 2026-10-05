@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Repair Haven — On-Site Repairs in Mombasa</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f9ff;--card:#ffffff;--ink:#0b2247;--mute:#546a8c;--brand:#2a62c9;--brand2:#1a4297;--accent:#5b8fe6;--line:#d8e3f5;--soft:#e6eefb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071327;--card:#0e2042;--ink:#eaf1ff;--mute:#9db3d6;--brand:#6ea3ff;--brand2:#3e74e0;--accent:#8db4ff;--line:#1e3a68;--soft:#12294f}}
+:root[data-theme="dark"]{--bg:#071327;--card:#0e2042;--ink:#eaf1ff;--mute:#9db3d6;--brand:#6ea3ff;--brand2:#3e74e0;--accent:#8db4ff;--line:#1e3a68;--soft:#12294f}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Jost,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.7}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;line-height:1.1;margin:0 0 .5em;font-weight:600}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+svg.i{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+.logo{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:700;font-size:1.45rem;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo svg{color:var(--brand)}
+nav a{margin-left:20px;text-decoration:none;font-size:.9rem;color:var(--mute)}
+nav a:hover{color:var(--brand)}
+@media(max-width:640px){nav a.hide{display:none}}
+.btn{display:inline-block;background:var(--brand2);color:#fff;border:0;padding:14px 26px;border-radius:999px;font-weight:600;font-size:1rem;cursor:pointer;text-decoration:none;transition:transform .15s,background .15s;font-family:inherit}
+.btn:hover{transform:translateY(-2px);background:var(--brand)}
+.btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.hero{padding:56px 0 40px;display:grid;gap:30px;grid-template-columns:1fr 1fr;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:36px}}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-size:.82rem;color:var(--mute);margin-bottom:18px}
+.pill svg{width:16px;height:16px;color:var(--accent)}
+h1{font-size:clamp(2.2rem,5.4vw,3.6rem);letter-spacing:-.015em}
+h1 em{color:var(--brand)}
+.hero p{color:var(--mute);font-size:1.08rem;max-width:480px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.art{position:relative}
+.art svg.scene{width:100%;height:auto;display:block;border-radius:26px}
+.status{position:absolute;left:14px;bottom:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(11,34,71,.15)}
+.status .d{width:10px;height:10px;border-radius:50%;background:var(--brand);animation:p 1.4s infinite}
+@keyframes p{50%{box-shadow:0 0 0 7px rgba(42,98,201,.2)}}
+.status b{display:block;font-size:.92rem}.status small{color:var(--mute)}
+section{padding:60px 0}
+.lead{color:var(--mute);max-width:600px;margin-bottom:30px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--brand)}
+.ic{width:52px;height:52px;border-radius:26px 26px 12px 12px;background:var(--soft);color:var(--brand);display:grid;place-items:center;margin-bottom:16px}
+.card h3{font-size:1.2rem}.card p{color:var(--mute);margin:0}
+.num{font-family:Jost,sans-serif;font-weight:500;color:var(--accent);font-size:.95rem;letter-spacing:.1em;margin-bottom:8px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px}
+.label{font-weight:600;margin:20px 0 8px;font-size:.92rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--bg);border:1.5px solid var(--line);color:var(--ink);padding:9px 16px;border-radius:999px;cursor:pointer;font-size:.92rem;font-family:inherit}
+.chip:hover{border-color:var(--brand)}
+.chip.sel{background:var(--brand2);color:#fff;border-color:var(--brand2)}
+input,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--brand);border-color:transparent}
+.note{font-size:.85rem;color:var(--mute);margin-top:12px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600}
+.faq p{color:var(--mute);margin:10px 0 0}
+.band{background-color:var(--brand2);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cg fill='none' stroke='white' stroke-opacity='.16' stroke-width='1.2'%3E%3Crect x='11' y='11' width='18' height='18'/%3E%3Crect x='11' y='11' width='18' height='18' transform='rotate(45 20 20)'/%3E%3C/g%3E%3C/svg%3E");color:#fff;text-align:center;border-radius:26px;padding:48px 22px}
+.band p{opacity:.9;margin:0 auto 22px;max-width:480px}
+.band .btn{background:#fff;color:var(--brand2)}
+footer{padding:36px 0 56px;color:var(--mute);font-size:.9rem;text-align:center}
+.float{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;background:#1f9a45;color:#fff;padding:13px 20px;border-radius:999px;font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25);display:flex;gap:8px;align-items:center}
+.float svg{width:20px;height:20px}
+.float.call{background:var(--brand2);bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+.tiles{height:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Crect width='40' height='40' fill='rgb(26,66,151)'/%3E%3Cg fill='none' stroke='white' stroke-width='1.4'%3E%3Crect x='11' y='11' width='18' height='18'/%3E%3Crect x='11' y='11' width='18' height='18' transform='rotate(45 20 20)'/%3E%3C/g%3E%3Ccircle cx='20' cy='20' r='2.5' fill='white'/%3E%3C/svg%3E");border-top:3px solid var(--card);box-shadow:0 -1px 0 var(--brand2)}
+
+html{-webkit-text-size-adjust:100%}
+body{-webkit-tap-highlight-color:transparent}
+.btn{min-height:48px}
+.chip{min-height:44px;padding:10px 18px}
+input,textarea{font-size:16px}
+.faq summary{padding:4px 0;min-height:44px;display:flex;align-items:center}
+@media(max-width:640px){
+body{padding-bottom:90px}
+.wrap{padding:0 16px}
+.hero{padding:26px 0 28px;gap:24px}
+.pill{font-size:.78rem}
+.hero p{font-size:1rem}
+.cta .btn{flex:1 1 100%;text-align:center}
+section{padding:40px 0}
+.card{padding:20px}
+.quote{padding:20px;border-radius:20px}
+.band{padding:36px 18px;border-radius:20px}
+.status{left:10px;bottom:10px;padding:9px 12px}
+.status b{font-size:.85rem}.status small{font-size:.75rem}
+.float{bottom:calc(12px + env(safe-area-inset-bottom,0px));width:calc(50% - 18px);justify-content:center;padding:15px 0;border-radius:14px;font-size:.98rem}
+.float.call{left:12px;right:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+.float:not(.call){right:12px;left:auto}
+}
+
+h1{font-size:clamp(2.7rem,6.4vw,4.4rem);font-weight:600}
+section h2{font-size:clamp(2.1rem,4.5vw,2.8rem);text-align:center}
+section h2::after{content:"";display:block;width:64px;height:14px;margin:14px auto 0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='14'%3E%3Cpath d='M0 7h24M40 7h24' stroke='rgb(42,98,201)' stroke-width='1.2'/%3E%3Crect x='28' y='3' width='8' height='8' fill='rgb(42,98,201)' transform='rotate(45 32 7)'/%3E%3C/svg%3E") center/contain no-repeat}
+.band h2::after{display:none}
+.lead{margin-left:auto;margin-right:auto;text-align:center}
+.card h3{font-size:1.45rem}
+.card{box-shadow:0 1px 0 rgba(11,34,71,.04)}
+.gallery{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.gal{text-align:center}
+.arch{border-radius:999px 999px 18px 18px;overflow:hidden;aspect-ratio:3/4;max-width:320px;margin:0 auto 16px;background:linear-gradient(#3a78e6,#173f92);border:4px solid var(--card);box-shadow:0 0 0 1.5px var(--brand),0 18px 40px rgba(26,66,151,.22);transition:transform .3s}
+.gal:hover .arch{transform:translateY(-6px)}
+.arch svg{width:100%;height:100%;display:block}
+.gal h3{font-size:1.5rem;margin-bottom:4px}.gal p{margin:0 auto;color:var(--mute);max-width:280px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 12.6 12.6 21a2.1 2.1 0 0 1-3-3L18 9.6"/><path d="M14.7 6.3 11 10l3 3 3.7-3.7"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+<symbol id="tag" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8L3 12z"/><circle cx="7.5" cy="8.5" r="1.2"/></symbol>
+<symbol id="shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+<symbol id="eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/></symbol>
+<symbol id="door" viewBox="0 0 24 24"><path d="M5 21V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v17"/><path d="M3 21h18"/><circle cx="15" cy="12.5" r=".8"/></symbol>
+<symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+<symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+</defs></svg>
+
+<header><div class="wrap">
+<a class="logo" href="#top"><svg class="i"><use href="#wrench"/></svg>Repair Haven</a>
+<nav><a class="hide" href="#services">Services</a><a class="hide" href="#how">How it works</a><a class="hide" href="#why">Why us</a><a href="#quote">Book a visit</a><a class="hide" href="#faq">FAQ</a></nav>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+<div>
+<span class="pill"><svg class="i"><use href="#pin"/></svg>Mombasa-wide · Based in Vescon Estate, Bamburi</span>
+<h1>Expert repairs, <em>at your door.</em></h1>
+<p>Repair Haven sends a technician to your home or office anywhere in Mombasa. Your device never leaves your sight, and you approve the price before we begin.</p>
+<div class="cta"><a class="btn" href="#quote">Book a free visit</a><a class="btn alt" href="tel:+254700400472">Call 0700 400 472</a></div>
+</div>
+<div class="art">
+<svg class="scene" viewBox="0 0 480 400" role="img" aria-label="Moroccan-style arched doorway with a laptop showing a completed repair">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a78e6"/><stop offset="1" stop-color="#173f92"/></linearGradient>
+<pattern id="bgp" width="40" height="40" patternUnits="userSpaceOnUse"><g fill="none" stroke="#fff" stroke-opacity=".14" stroke-width="1.2"><rect x="11" y="11" width="18" height="18"/><rect x="11" y="11" width="18" height="18" transform="rotate(45 20 20)"/></g></pattern>
+<pattern id="zel" width="40" height="40" patternUnits="userSpaceOnUse"><rect width="40" height="40" fill="#1b4ba8"/><g fill="none" stroke="#fff" stroke-width="1.4"><rect x="11" y="11" width="18" height="18"/><rect x="11" y="11" width="18" height="18" transform="rotate(45 20 20)"/></g><circle cx="20" cy="20" r="2.5" fill="#fff"/></pattern>
+<linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f57b8"/><stop offset="1" stop-color="#0d2a66"/></linearGradient>
+</defs>
+<rect width="480" height="400" fill="url(#bg)"/><rect width="480" height="400" fill="url(#bgp)"/>
+<path d="M104 380V200C104 116 166 62 240 62s136 54 136 138v180z" fill="url(#zel)" stroke="#fff" stroke-width="4"/>
+<path d="M138 380V205c0-62 47-104 102-104s102 42 102 104v175z" fill="#f4f8ff" stroke="#fff" stroke-width="3"/>
+<path d="M150 380V206c0-54 41-92 90-92s90 38 90 92v174" fill="none" stroke="#2a62c9" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+<g fill="#fff"><rect x="228" y="34" width="24" height="24" rx="2"/><rect x="228" y="34" width="24" height="24" rx="2" transform="rotate(45 240 46)"/></g>
+<circle cx="240" cy="46" r="4" fill="#2a62c9"/>
+<rect x="150" y="318" width="180" height="9" rx="3" fill="#1a4297"/><rect x="164" y="327" width="6" height="45" fill="#1a4297"/><rect x="310" y="327" width="6" height="45" fill="#1a4297"/>
+<rect x="176" y="224" width="128" height="86" rx="7" fill="#0d2a66"/><rect x="182" y="230" width="116" height="74" rx="3" fill="url(#scr)"/>
+<circle cx="240" cy="262" r="19" fill="none" stroke="#fff" stroke-width="3"/><path d="m231 262 7 7 13-15" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="198" y="292" width="84" height="4" rx="2" fill="#fff" opacity=".3"/><rect x="198" y="292" width="62" height="4" rx="2" fill="#fff"/>
+<path d="M164 310h152l9 8H155z" fill="#c9d8f2"/>
+<rect x="0" y="372" width="480" height="28" fill="url(#zel)"/><rect x="0" y="370" width="480" height="3" fill="#fff"/>
+<line x1="62" y1="0" x2="62" y2="66" stroke="#fff" stroke-width="2"/>
+<circle cx="62" cy="106" r="38" fill="#fff" opacity=".12"/>
+<path d="M48 74h28l-5-9H53z" fill="#fff"/><path d="M50 74h24l7 38-19 16-19-16z" fill="#fff" stroke="#dbe7ff" stroke-width="2"/>
+<path d="M62 84l7 15-7 15-7-15z" fill="#2a62c9"/><circle cx="62" cy="99" r="2.5" fill="#fff"/><circle cx="62" cy="134" r="3" fill="#fff"/>
+<g fill="#fff" opacity=".9"><rect x="410" y="60" width="18" height="18"/><rect x="410" y="60" width="18" height="18" transform="rotate(45 419 69)"/></g>
+</svg>
+<div class="status"><span class="d"></span><div><b id="stTitle">Request received</b><small id="stSub">We're confirming your visit</small></div></div>
+</div>
+</div>
+
+<section id="services"><div class="wrap"><h2>What we repair</h2><p class="lead">Expert hands for the devices you rely on every day, fixed at your home or office.</p><div class="gallery"><figure class="gal reveal" style="margin:0"><div class="arch"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Laptops"><rect width="300" height="400" fill="url(#bgp)"/><g fill="#fff"><rect x="141" y="44" width="18" height="18"/><rect x="141" y="44" width="18" height="18" transform="rotate(45 150 53)"/></g><circle cx="150" cy="53" r="3" fill="#2a62c9"/><rect y="352" width="300" height="48" fill="url(#zel)"/><rect y="350" width="300" height="3" fill="#fff"/><rect x="60" y="170" width="180" height="118" rx="8" fill="#0d2a66" stroke="#fff" stroke-width="3"/><rect x="68" y="178" width="164" height="102" rx="3" fill="url(#scr)"/><circle cx="150" cy="229" r="24" fill="none" stroke="#fff" stroke-width="3"/><path d="m139 229 8 8 15-17" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 292h220l-14 14H54z" fill="#dbe7ff"/></svg></div><h3>Laptops</h3><p>Screens, batteries, keyboards, slow systems and software problems.</p></figure><figure class="gal reveal" style="margin:0"><div class="arch"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Phones"><rect width="300" height="400" fill="url(#bgp)"/><g fill="#fff"><rect x="141" y="44" width="18" height="18"/><rect x="141" y="44" width="18" height="18" transform="rotate(45 150 53)"/></g><circle cx="150" cy="53" r="3" fill="#2a62c9"/><rect y="352" width="300" height="48" fill="url(#zel)"/><rect y="350" width="300" height="3" fill="#fff"/><rect x="105" y="130" width="90" height="190" rx="16" fill="#0d2a66" stroke="#fff" stroke-width="3"/><rect x="113" y="146" width="74" height="158" rx="6" fill="url(#scr)"/><path d="M113 160l37 50-22 40 32 54M150 210l37-14M128 250l-15 6" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="1.6"/><circle cx="190" cy="136" r="17" fill="#fff"/><path d="m182 136 6 6 10-12" fill="none" stroke="#2a62c9" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Phones</h3><p>Cracked screens, charging faults, battery issues and water damage.</p></figure><figure class="gal reveal" style="margin:0"><div class="arch"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Tablets &amp; TVs"><rect width="300" height="400" fill="url(#bgp)"/><g fill="#fff"><rect x="141" y="44" width="18" height="18"/><rect x="141" y="44" width="18" height="18" transform="rotate(45 150 53)"/></g><circle cx="150" cy="53" r="3" fill="#2a62c9"/><rect y="352" width="300" height="48" fill="url(#zel)"/><rect y="350" width="300" height="3" fill="#fff"/><rect x="40" y="170" width="220" height="130" rx="8" fill="#0d2a66" stroke="#fff" stroke-width="3"/><rect x="48" y="178" width="204" height="114" rx="3" fill="url(#scr)"/><path d="M104 252q46-56 92 0M122 252q28-34 56 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="150" cy="254" r="5" fill="#fff"/><rect x="140" y="300" width="20" height="26" fill="#dbe7ff"/><path d="M112 328h76" stroke="#dbe7ff" stroke-width="6" stroke-linecap="round"/></svg></div><h3>Tablets &amp; TVs</h3><p>Display faults, power problems and no-signal troubleshooting.</p></figure></div></div></section>
+
+<section id="how"><div class="wrap">
+<h2>Repairs, without the run-around</h2>
+<p class="lead">No queues, no drop-offs, no waiting weeks to see your device again.</p>
+<div class="grid">
+<div class="card reveal"><div class="num">STEP 01</div><div class="ic"><svg class="i"><use href="#chat"/></svg></div><h3>Tell us the issue</h3><p>Use the booking tool below or message us on WhatsApp. We'll reply with a price estimate and a visit time.</p></div>
+<div class="card reveal"><div class="num">STEP 02</div><div class="ic"><svg class="i"><use href="#door"/></svg></div><h3>We come to you</h3><p>Our technician arrives at your home or office, diagnoses on the spot, and confirms the final price first.</p></div>
+<div class="card reveal"><div class="num">STEP 03</div><div class="ic"><svg class="i"><use href="#wrench"/></svg></div><h3>Fixed while you watch</h3><p>Most repairs are done right there. You test it, and pay only when you're satisfied.</p></div>
+</div></div></section>
+
+<section id="why"><div class="wrap">
+<h2>Why Mombasa can trust us</h2>
+<p class="lead">Handing your device to a stranger is a big ask. So we made sure you never have to.</p>
+<div class="grid">
+<div class="card reveal"><div class="ic"><svg class="i"><use href="#eye"/></svg></div><h3>You watch every step</h3><p>The repair happens in front of you. Nothing is taken away, nothing is hidden.</p></div>
+<div class="card reveal"><div class="ic"><svg class="i"><use href="#lock"/></svg></div><h3>Your data stays yours</h3><p>Your device never leaves your hands, so your photos, messages and files stay private.</p></div>
+<div class="card reveal"><div class="ic"><svg class="i"><use href="#tag"/></svg></div><h3>Upfront pricing</h3><p>You approve the quote before any work begins. No surprise charges.</p></div>
+<div class="card reveal"><div class="ic"><svg class="i"><use href="#shield"/></svg></div><h3>Repair warranty</h3><p>Every repair is backed by a warranty, so a problem afterwards is our problem.</p></div>
+</div></div></section>
+
+<section id="quote"><div class="wrap">
+<h2>Book a free visit</h2>
+<p class="lead">Choose your device and the problem. We'll reply on WhatsApp with a price and a time that suits you.</p>
+<div class="quote">
+<div class="label">1. What needs fixing?</div><div class="chips" id="devices"></div>
+<div id="issueBox" style="display:none"><div class="label">2. What's the problem?</div><div class="chips" id="issues"></div></div>
+<div class="label">3. Where should we come? (area in Mombasa)</div>
+<input id="area" list="areas" placeholder="e.g. Bamburi, Nyali, Tudor">
+<datalist id="areas"><option>Bamburi</option><option>Nyali</option><option>Kisauni</option><option>Shanzu</option><option>Tudor</option><option>Old Town</option><option>Likoni</option><option>Changamwe</option><option>Mikindani</option></datalist>
+<div class="label">Your name &amp; any details (optional)</div>
+<textarea id="extra" rows="2" placeholder="e.g. Amina — dropped in water yesterday"></textarea>
+<p style="margin:22px 0 0"><button class="btn" id="send">Send on WhatsApp →</button></p>
+<p class="note" id="hint">Choose a device to begin. Free quote, no obligation.</p>
+</div></div></section>
+
+<section id="faq" class="faq"><div class="wrap">
+<h2>Questions, answered</h2>
+<details><summary>Do I pay for the quote or the visit?</summary><p>Quotes are free with no obligation. We'll confirm any visit fee, if applicable, before you book.</p></details>
+<details><summary>Where do you operate?</summary><p>Across Mombasa, with our base in Vescon Estate, Bamburi. Tell us your area and we'll confirm a time.</p></details>
+<details><summary>What if you can't fix it on site?</summary><p>We'll tell you honestly after diagnosis and explain your options before any repair charge is agreed.</p></details>
+<details><summary>How long does a repair take?</summary><p>Many common repairs are completed during the visit. We'll give you a realistic estimate with your quote.</p></details>
+<details><summary>How do I pay?</summary><p>We'll confirm payment options with your quote, including M-Pesa.</p></details>
+</div></section>
+
+<section><div class="wrap"><div class="band">
+<h2>Give Repair Haven a try</h2>
+<p>One message and we're on our way. See for yourself how easy repairs can be.</p>
+<a class="btn" href="#quote">Book my free visit</a>
+</div></div></section>
+</main>
+
+<div class="tiles" aria-hidden="true"></div>
+<footer><div class="wrap">© Repair Haven · Vescon Estate, Bamburi, Mombasa · On-site repairs across Mombasa<br><a href="tel:+254700400472">0700 400 472</a></div></footer>
+<a class="float call" href="tel:+254700400472"><svg class="i"><use href="#phone"/></svg>Call us</a>
+<a class="float" id="wa" href="#quote"><svg class="i"><use href="#chat"/></svg>Chat with us</a>
+
+<script>
+var PHONE="254700400472";
+var DATA={"Phone":["Cracked screen","Battery drains fast","Won't charge","Water damage","Won't turn on","Other"],
+"Laptop":["Slow / freezing","Cracked screen","Won't turn on","Battery / charging","Keyboard issue","Software / virus","Other"],
+"Tablet":["Cracked screen","Won't charge","Won't turn on","Other"],
+"TV / Other":["No picture","No power","Other"]};
+var dev=null,iss=null;
+var dEl=document.getElementById("devices"),iEl=document.getElementById("issues"),box=document.getElementById("issueBox"),hint=document.getElementById("hint");
+function chips(el,list,cb,cur){el.innerHTML="";list.forEach(function(t){var b=document.createElement("button");b.type="button";b.className="chip"+(t===cur?" sel":"");b.textContent=t;b.onclick=function(){cb(t)};el.appendChild(b)})}
+function pickDev(t){dev=t;iss=null;chips(dEl,Object.keys(DATA),pickDev,dev);box.style.display="block";chips(iEl,DATA[t],pickIss,null);hint.textContent="Now pick the problem."}
+function pickIss(t){iss=t;chips(iEl,DATA[dev],pickIss,iss);hint.textContent="Ready. Add your area, then tap send."}
+chips(dEl,Object.keys(DATA),pickDev,null);
+function msg(){var a=document.getElementById("area").value.trim(),x=document.getElementById("extra").value.trim();
+var m="Hi Repair Haven! I'd like to book an on-site repair visit.";
+if(dev)m+="\nDevice: "+dev;if(iss)m+="\nProblem: "+iss;if(a)m+="\nArea: "+a;if(x)m+="\nDetails: "+x;
+return "https://wa.me/"+PHONE+"?text="+encodeURIComponent(m)}
+document.getElementById("send").onclick=function(){if(!dev||!iss){hint.textContent="Please pick a device and a problem first.";return}window.open(msg(),"_blank")};
+document.getElementById("wa").onclick=function(e){if(dev&&iss){e.preventDefault();window.open(msg(),"_blank")}};
+var ST=[["Request received","We're confirming your visit"],["Technician on the way","Heading to your location"],["Repair in progress","Explained as we go"],["Fixed and tested","Pay when you're happy"]],k=0;
+setInterval(function(){k=(k+1)%ST.length;document.getElementById("stTitle").textContent=ST[k][0];document.getElementById("stSub").textContent=ST[k][1]},2200);
+try{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)})}catch(e){document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in")})}
+</script>
+</body>
+</html>
